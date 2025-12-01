@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxf80pb3rre"]
+
+[ext_resource type="Script" uid="uid://bfb78obc2lqai" path="res://01/label.gd" id="1_vx1em"]
+
+[node name="Label" type="Label"]
+offset_left = 573.0
+offset_top = 7.0
+offset_right = 677.0
+offset_bottom = 30.0
+text = "Zero Count: 0"
+script = ExtResource("1_vx1em")
