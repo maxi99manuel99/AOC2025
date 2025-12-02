@@ -31,9 +31,9 @@ func _ready() -> void:
 			self.text = waiting_text
 			var digit_count: int = get_digit_count(x)
 			if has_even_digits(x):
-				var half_digit_count: int = digit_count / 2
+				var half_digit_count: int = int(digit_count / 2)
 				var divisor: int = int(pow(10, half_digit_count))
-				var left := x / divisor
+				var left := int(x / divisor)
 				var right := x % divisor
 				if left == right:
 					_result_display1.add(x)
@@ -58,8 +58,4 @@ func _ready() -> void:
 					await get_tree().create_timer(0.005).timeout
 					break
 					
-	self.text = "All invalid IDs have been identified"
-	
-						
-					
-		
+	self.text = "All invalid IDs have been identified"	
