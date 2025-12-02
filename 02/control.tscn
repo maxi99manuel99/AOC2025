@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpt7i46p2ajwp"]
+
+[ext_resource type="Script" uid="uid://cdc2knvgp46rg" path="res://02/valid_number_display.gd" id="1_2wwqa"]
+[ext_resource type="PackedScene" uid="uid://c71ufjqwuhhsf" path="res://02/result_sum.tscn" id="2_hkdsx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hkdsx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkdsx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.16206959, 0.4694426, 0.08286782, 0.4)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="GDScript" id="GDScript_hkdsx"]
+script/source = "
+extends HSlider
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -11.5
+offset_right = 70.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Waiting for start..."
+script = ExtResource("1_2wwqa")
+
+[node name="ResultSum" parent="." instance=ExtResource("2_hkdsx")]
+layout_mode = 1
+offset_left = -16.0
+offset_top = 232.0
+offset_right = 24.0
+offset_bottom = 255.0
+
+[node name="ResultSum2" parent="." instance=ExtResource("2_hkdsx")]
+layout_mode = 1
+offset_left = -16.0
+offset_top = 256.0
+offset_right = 24.0
+offset_bottom = 279.0
+
+[node name="ProgressBar" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 192.0
+offset_right = 80.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_hkdsx")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_hkdsx")
+script = SubResource("GDScript_hkdsx")
+
+[node name="ProgressTitle" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_right = 34.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Progress"
