@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://l61b3u6eoho1"]
+
+[ext_resource type="Texture2D" uid="uid://dk7b8ldroqu0b" path="res://03/battery-energy-electric.svg" id="1_lj16r"]
+[ext_resource type="Script" uid="uid://mwb6i6vdwmr7" path="res://03/battery.gd" id="2_u07fh"]
+
+[sub_resource type="Shader" id="Shader_g24wb"]
+code = "shader_type canvas_item;
+
+uniform vec4 target_color : source_color = vec4(1.0, 1.0, 0.0, 1.0); 
+uniform float threshold : hint_range(0.0, 1.0) = 0.1;             
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+
+    // Compute brightness of the pixel (0 = black, 1 = white)
+    float luminance = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
+
+    // If it's close to black, replace it with your color, else keep original
+    if (luminance < threshold) {
+        COLOR = tex;
+    } else {
+        COLOR = target_color;
+    }
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee0hs"]
+shader = SubResource("Shader_g24wb")
+shader_parameter/target_color = Color(1, 0, 0, 1)
+shader_parameter/threshold = 0.1
+
+[sub_resource type="Gradient" id="Gradient_lj16r"]
+offsets = PackedFloat32Array(0, 0.40666667, 0.70666665, 1)
+colors = PackedColorArray(0.8445667, 0, 0.16656533, 1, 0.9019608, 0.30588236, 0.05490196, 1, 0.85596514, 0.07333333, 0.22768387, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u07fh"]
+gradient = SubResource("Gradient_lj16r")
+
+[sub_resource type="Gradient" id="Gradient_u07fh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1p0md"]
+gradient = SubResource("Gradient_u07fh")
+fill_to = Vector2(0.37850466, 0.57009345)
+
+[node name="Battery" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_u07fh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+clip_children = 2
+material = SubResource("ShaderMaterial_ee0hs")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lj16r")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.24313726, 1)
+
+[node name="OnTexture" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_u07fh")
+
+[node name="Highlight" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_1p0md")
+
+[node name="BatteryValue" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.12
+anchor_top = 0.5
+anchor_right = 1.12
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.0
+offset_right = -14.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh6mc7cl0u6xa"]
+
+[ext_resource type="PackedScene" uid="uid://l61b3u6eoho1" path="res://03/battery.tscn" id="1_20qsu"]
+[ext_resource type="Script" uid="uid://d038ignmmbe4m" path="res://03/battery_container.gd" id="1_g24wb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BatteryContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_g24wb")
+
+[node name="Battery" parent="BatteryContainer" instance=ExtResource("1_20qsu")]
+layout_mode = 2
