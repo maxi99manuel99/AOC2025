@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyjnf0cc6x5sm"]
+
+[ext_resource type="Script" uid="uid://dnxg56laegoiv" path="res://04/paper_field.gd" id="1_fhx7o"]
+[ext_resource type="PackedScene" uid="uid://dcdwmyhg0g7c7" path="res://04/paper.tscn" id="3_b4ixn"]
+[ext_resource type="PackedScene" uid="uid://beduqnqmsbhjs" path="res://04/empty_tile.tscn" id="4_b4ixn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+
+[node name="PaperField" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+script = ExtResource("1_fhx7o")
+paper_scene = ExtResource("3_b4ixn")
+emtpy_tile_scene = ExtResource("4_b4ixn")
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Accessible Papers at the start: 0"
+
+[node name="Result2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 16.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Total removed Papers: 0"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://beduqnqmsbhjs"]
+
+[ext_resource type="Texture2D" uid="uid://bhom0g3e2ge5e" path="res://04/tile.png" id="1_o7tku"]
+
+[node name="EmptyTile" type="TextureRect"]
+custom_minimum_size = Vector2(50, 50)
+texture = ExtResource("1_o7tku")
+expand_mode = 1
