@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="AOC2025"
-run/main_scene="uid://dyjnf0cc6x5sm"
+run/main_scene="uid://fy6go8a27q1c"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

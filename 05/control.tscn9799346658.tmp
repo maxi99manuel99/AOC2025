@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://fy6go8a27q1c"]
+
+[ext_resource type="Script" uid="uid://8nr205rop6m3" path="res://05/ingredient_analyzer.gd" id="1_6pq7n"]
+[ext_resource type="PackedScene" uid="uid://ctosv6s517g88" path="res://05/basket.tscn" id="2_d86sa"]
+[ext_resource type="Texture2D" uid="uid://f7sew60eatec" path="res://05/peach.svg" id="3_4wybn"]
+[ext_resource type="PackedScene" uid="uid://yt1lvn8qrki6" path="res://05/fruit.tscn" id="3_u8dkx"]
+[ext_resource type="Texture2D" uid="uid://cco3oox81pxlg" path="res://05/banana.svg" id="4_snisr"]
+
+[sub_resource type="PackedScene" id="PackedScene_u8dkx"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Peach", "TextureRect", "custom_minimum_size", "offset_right", "offset_bottom", "texture", "expand_mode"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0),
+"variants": [Vector2(50, 50), 40.0, 40.0, ExtResource("3_4wybn"), 1],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_wdmuc"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Banana", "TextureRect", "custom_minimum_size", "offset_top", "offset_right", "offset_bottom", "texture", "expand_mode"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0),
+"variants": [Vector2(50, 50), 176.0, 50.0, 226.0, ExtResource("4_snisr"), 1],
+"version": 3
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IngredientAnalyzer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+script = ExtResource("1_6pq7n")
+basket_scene = ExtResource("2_d86sa")
+apple_scene = ExtResource("3_u8dkx")
+peach_scene = SubResource("PackedScene_u8dkx")
+banana_scene = SubResource("PackedScene_wdmuc")

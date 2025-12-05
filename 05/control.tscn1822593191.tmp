@@ -21,23 +21,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="IngredientAnalyzer" type="GridContainer" parent="ScrollContainer"]
-z_index = 1
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 10
 script = ExtResource("1_6pq7n")
 basket_scene = ExtResource("2_d86sa")
 fruit_scene = ExtResource("3_4wybn")
-
-[node name="Result1" type="Label" parent="."]
-layout_mode = 0
-offset_top = 24.0
-offset_right = 290.0
-offset_bottom = 47.0
-text = "Available ingredients that are fresh: 0"
-
-[node name="Result2" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Total fresh ingredients: 0"
