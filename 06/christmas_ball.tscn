@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://8cyfpwi7hdl6"]
+
+[ext_resource type="Texture2D" uid="uid://f5h3n5qjy0a7" path="res://06/christmas-ball.svg" id="1_7f2cw"]
+
+[node name="ChristmasBall" type="TextureRect"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7f2cw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -34.0
+offset_right = 20.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7738555, 2.23808e-06, 9.62615e-07, 1)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

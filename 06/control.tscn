@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq7i4kfsuycb3"]
+
+[ext_resource type="Script" uid="uid://cjxa4f1s0q4bt" path="res://06/expression_tree_container.gd" id="1_skai5"]
+[ext_resource type="PackedScene" uid="uid://vg4yl0fiyl8f" path="res://06/expression_tree.tscn" id="2_0lfax"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExpressionTreeContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+script = ExtResource("1_skai5")
+expression_tree_scene = ExtResource("2_0lfax")
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.08439294, 0, 0.960686, 1)
+text = "Sum of Tree Results: 0"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.14143449, 0.59352773, 0.45251477, 1)
+theme_override_colors/font_focus_color = Color(0.14117648, 0.5921569, 0.4509804, 1)
+theme_override_colors/font_pressed_color = Color(0.14117648, 0.5921569, 0.4509804, 1)
+theme_override_colors/font_hover_color = Color(0.14117648, 0.5921569, 0.4509804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.14117648, 0.5921569, 0.4509804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.8901961, 1)
+text = "Switch Puzzle Part"
