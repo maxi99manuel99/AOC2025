@@ -66,8 +66,8 @@ func _compute_distances(points: Array[Vector3], top_k: int = 5) -> void:
 				_distances.append(dist_obj)
 		
 		if top_k:
-			for n in top_k_neighbors:
-				_distances.append(n)
+			for neighbor_dist_obj in top_k_neighbors:
+				_distances.append(neighbor_dist_obj)
 
 	_distances.sort_custom(_sort_by_distance)
 	
@@ -121,7 +121,6 @@ func _connect_nearest_to_circuit(n_nearest: int = 0) -> void:
 	_circuits.sort_custom(_sort_by_circuit_len_descending)
 
 func _ready() -> void:
-	var start_time = Time.get_ticks_msec()
 	_compute_distances(_junction_positions)
 	_connect_nearest_to_circuit(1000)
 	var result1: int = 1
@@ -129,7 +128,5 @@ func _ready() -> void:
 		result1 *= len(_circuits[i].members)
 	print("Result1: " + str(result1))
 	_connect_nearest_to_circuit()
-	var elapsed = Time.get_ticks_msec() - start_time
-	print("Elapsed: ", elapsed, " ms")
 	
 		
